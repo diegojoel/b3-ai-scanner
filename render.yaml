@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: b3-ai-scanner-api
+    env: docker
+    plan: starter
+    dockerContext: .
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: CREATE_DB_ON_STARTUP
+        value: "true"
+      - key: SEED_DEMO_DATA
+        value: "true"
+      - key: USE_REAL_MARKET_DATA
+        value: "true"
+      - key: SCAN_ALL_B3
+        value: "true"
+      - key: B3_UNIVERSE_LIMIT
+        value: "0"
+      - key: INCLUDE_SMALLCAPS
+        value: "false"
+      - key: B3_RECENT_TRADING_DAYS
+        value: "30"
+      - key: B3_REFRESH_BATCH_SIZE
+        value: "40"
+      - key: AUTO_RUN_SCANNER
+        value: "true"
+      - key: SCANNER_INTERVAL_SECONDS
+        value: "180"
+      - key: SCANNER_INITIAL_DELAY_SECONDS
+        value: "30"
+      - key: SCANNER_REFRESH_UNIVERSE
+        value: "false"

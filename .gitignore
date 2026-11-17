@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.log
+
+scanner.local.db
+*.sqlite
+*.sqlite3
+
+node_modules/
+dist/
+.vite/
+
+postgres_data/
+
